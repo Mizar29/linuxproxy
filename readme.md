@@ -4,7 +4,8 @@
 ## 1.1 准备文件
 一共要准备三个文件，其中两个的下载链接为：
 
-https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb\
+https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb
+
 https://github.com/Kuingsmile/clash-core/releases/download/1.18/clash-linux-amd64-v1.18.0.gz
 
 还有一个config.yaml文件，这需要先在本地电脑导入你的订阅链接后，找到对应的.yaml文件，再将其重命名为config.yaml即可。
@@ -91,8 +92,8 @@ kill PID # 比如这里的 PID 应替换为 14365
 ## 2.5 设置变量以简化操作
 若想灵活切换代理，可在~/.bashrc中添加以下内容：
 
->alias proxy="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"\
->alias unproxy="unset http_proxy;unset https_proxy"
+> alias proxy="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"\
+> alias unproxy="unset http_proxy;unset https_proxy"
 
 然后运行
 
