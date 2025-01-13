@@ -92,7 +92,8 @@ kill PID # 比如这里的 PID 应替换为 14365
 ## 2.5 设置变量以简化操作
 若想灵活切换代理，可在~/.bashrc中添加以下内容：
 
-> alias proxy="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"\
+> alias proxy="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"
+
 > alias unproxy="unset http_proxy;unset https_proxy"
 
 然后运行
