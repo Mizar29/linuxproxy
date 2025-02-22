@@ -37,7 +37,7 @@ mv clash-linux-amd64-v1.18.0 clash # 重命名
 chmod +x clash # 赋予可执行权限
 ```
 
-## 2.2 更新profile文件
+## 2.2 设置全局代理端口（不推荐）
 先打开profile文件：
 
 ```bash
@@ -55,13 +55,29 @@ nano /etc/profile # 打开并编辑profile
 source /etc/profile # 更新profile
 ```
 
-该方法在**所有终端全局生效**
+该方法在**所有Shell会话全局生效**，即无论clash是否运行，所有流量均通过7890端口进行转发，这会在不想使用代理时产生麻烦
 
-## 2.3 启动并测试代理
+## 2.3 设置用户级代理端口与快捷方式（推荐）
+若想灵活切换代理，可在~/.bashrc中添加以下内容：
+
+> alias proxy="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"
+
+> alias unproxy="unset http_proxy;unset https_proxy"
+
+然后运行
+
+```bash
+source ~/.bashrc
+```
+
+此后可在Shell会话中通过proxy和unproxy命令来开启（需保证clash正在运行）和关闭代理，但每次打开新的Shell会话时都默认不开启代理，需手动开启
+
+## 2.4 启动并测试代理
 后台运行代理：
 
 ```bash
 nohup /opt/clash/clash &
+proxy # 若没有设置上述快捷方式则忽略
 ```
 
 测试：
@@ -72,7 +88,7 @@ curl google.com
 
 若不报错且有输出结果，则表明配置成功。
 
-## 2.4 彻底关闭代理
+## 2.5 关闭clash进程
 先查看PID：
 
 ```bash
@@ -88,21 +104,6 @@ ps aux | grep clash
 ```bash
 kill PID # 比如这里的 PID 应替换为 14365
 ```
-
-## 2.5 设置变量以简化操作
-若想灵活切换代理，可在~/.bashrc中添加以下内容：
-
-> alias proxy="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"
-
-> alias unproxy="unset http_proxy;unset https_proxy"
-
-然后运行
-
-```bash
-source ~/.bashrc
-```
-
-此后可在终端中通过proxy和unproxy来开启和关闭代理。
 
 ## 2.6 图形化操作界面(GUI)
 ~~待整理~~
