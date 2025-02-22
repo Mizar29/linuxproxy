@@ -141,7 +141,7 @@ socks-port: 7891
 allow-lan: true
 mode: rule
 log-level: info
-secert: your_password // 若不需要密码，注释掉这一行即可
+secret: your_password // 替换为你自己的密码，若不需要密码，注释掉这一行即可
 external-ui: dashboard // 增加这一行
 external-controller: '0.0.0.0:9090'
 ```
