@@ -72,6 +72,12 @@ source ~/.bashrc
 
 此后可在Shell会话中通过proxy和unproxy命令来开启（需保证clash正在运行）和关闭代理，但每次打开新的Shell会话时都默认不开启代理，需手动开启
 
+查看在当前Shell会话中是否设置了proxy：
+
+```bash
+echo $http_proxy # 或 echo $https_proxy
+```
+若有返回结果，则表明已设置proxy
 ## 2.4 启动并测试代理
 后台运行代理：
 
