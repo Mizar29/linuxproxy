@@ -104,5 +104,52 @@ source ~/.bashrc
 
 此后可在终端中通过proxy和unproxy来开启和关闭代理。
 
-## 2.6 图形化操作界面（UI）
-待整理
+## 2.6 图形化操作界面(GUI)
+~~待整理~~
+
+移动到.yaml配置文件所在目录：
+
+```bash
+cd ~/.config/clash
+```
+
+下载图形化操作界面：
+
+```bash
+wget https://github.com/haishanh/yacd/releases/download/v0.3.8/yacd.tar.xz
+```
+
+或在本地下载好文件后上传到服务器
+
+解压下载的文件：
+
+```bash
+tar -Jxvf yacd.tar.xz
+```
+
+重命名：
+
+```bash
+mv public dashboard
+```
+
+修改.yaml配置文件：
+
+```yaml
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+secert: your_password // 若不需要密码，注释掉这一行即可
+external-ui: dashboard // 增加这一行
+external-controller: '0.0.0.0:9090'
+```
+
+最后在服务器上开放9090端口，然后访问地址：
+
+http://yacd.haishan.me
+
+即可使用GUI选择代理节点
+
+![Demo](./figures/demo.png)
