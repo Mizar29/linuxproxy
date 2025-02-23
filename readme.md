@@ -126,7 +126,7 @@ cd ~/.config/clash
 wget https://github.com/haishanh/yacd/releases/download/v0.3.8/yacd.tar.xz
 ```
 
-或在本地下载好文件后上传到服务器
+或在本地下载好后上传到服务器
 
 解压下载的文件：
 
@@ -155,8 +155,9 @@ external-controller: '0.0.0.0:9090'
 
 最后在服务器上开放9090端口，然后访问地址：
 
-http://yacd.haishan.me
+> 服务器IP:9090/ui
 
-即可使用GUI选择代理节点
+服务器也可能会再生成一个地址，在该地址后添加/ui即可\
+即可打开可视化界面以管理clash
 
-![Demo](./figures/demo.png)
+
